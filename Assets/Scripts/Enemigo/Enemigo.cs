@@ -9,25 +9,28 @@ public class Enemigo : MonoBehaviour
     public Rigidbody2D _rb;
 
     public GameObject _rangoDeVision;
-    private RangoDeVision RDV; 
+
+    public Transform _posicion;
 
     public float velocidad = 0;
 
+    public bool _esPersonaje;
+
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
-        RDV = _rangoDeVision.GetComponent<RangoDeVision>();
     }
 
     private void Update() {
-        if(RDV.dentroDelRango){
+        if(_posicion != null) {
             Mover();
         }
     }
 
     void Mover() {
-        Vector2 direccion = RDV.posicionPersonaje.position - transform.position;
-        Debug.Log(direccion);
+        Vector2 direccion = _posicion.position - transform.position;
 
-        _rb.velocity = direccion * velocidad;
+        direccion = new Vector2(direccion.x, 0);
+
+        _rb.velocity = direccion.normalized * velocidad;
     }
 }
