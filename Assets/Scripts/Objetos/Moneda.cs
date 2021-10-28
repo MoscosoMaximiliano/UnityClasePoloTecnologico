@@ -10,7 +10,10 @@ namespace Objetos
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
+            {
+                GameController.Instance.SumarPuntos(5);
                 Destroy(this.gameObject);
+            }
         }
     }    
 }
