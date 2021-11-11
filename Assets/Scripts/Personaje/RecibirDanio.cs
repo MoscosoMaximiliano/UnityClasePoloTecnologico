@@ -18,6 +18,7 @@ public class RecibirDanio : MonoBehaviour
         if(other.gameObject.tag == "Enemigo")
         {
             _source.PlayOneShot(_clip);
+            GameController.Instance.RestarVidas(1);
         }
     }
 }

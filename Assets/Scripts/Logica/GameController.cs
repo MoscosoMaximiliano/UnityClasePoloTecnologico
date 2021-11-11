@@ -26,4 +26,9 @@ public class GameController : MonoBehaviour
         puntos += variable;
         textoPuntos.text = "Puntos: " + puntos;
     }
+
+    public void RestarVidas(int variable)
+    {
+        vidas -= variable;
+    }
 }
